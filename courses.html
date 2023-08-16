@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <title>AP Signals Bootcamp</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
+      <div class="container">
+        <a href="/index.html" class="navbar-brand"><img src="./img/aps.png" class="pe-3 w-25" alt="logo" />AP Signals Bootcamp</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navmenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="/index.html#learn" class="nav-link">What You'll Learn</a>
+            </li>
+            <li class="nav-item">
+              <a href="/index.html#questions" class="nav-link">Questions</a>
+            </li>
+            <li class="nav-item">
+              <a href="/index.html#instructors" class="nav-link">Instructors</a>
+            </li>
+            <li class="nav-item">
+              <a href="/courses.html" class="nav-link">Courses</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Courses Table -->
+    <section class="p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+      <div class="container p-5">
+        <div class="d-flex mb-3 flex-row-reverse">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createCourse">Create Course</button>
+        </div>
+        <div class="d-sm-flex align-items-center justify-content-between">
+          <table class="table table-hover table-bordered border-dark">
+            <thead>
+              <tr class="text-center">
+                <td colspan="5">Our Bootcamp Courses</td>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Course Name</th>
+                <th scope="col">Course Slug</th>
+                <th scope="col">Course Description</th>
+                <th scope="col">Tools</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider" id="courseTable">
+              <!-- <tr>
+                <th scope="row">1</th>
+                <td>HTML</td>
+                <td>html</td>
+                <td>Lorem ipsum dolor sit amet.</td>
+                <td class="text-center">
+                  <button type="button" class="btn btn-success me-2">Edit</button>
+                  <button type="button" class="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>CSS</td>
+                <td>css</td>
+                <td>Lorem ipsum dolor sit amet.</td>
+                <td class="text-center">
+                  <button type="button" class="btn btn-success me-2">Edit</button>
+                  <button type="button" class="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Bootstrap</td>
+                <td>bootstrap</td>
+                <td>Lorem ipsum dolor sit amet.</td>
+                <td class="text-center">
+                  <button type="button" class="btn btn-success me-2">Edit</button>
+                  <button type="button" class="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>Git</td>
+                <td>git</td>
+                <td>Lorem ipsum dolor sit amet.</td>
+                <td class="text-center">
+                  <button type="button" class="btn btn-success me-2">Edit</button>
+                  <button type="button" class="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>Github</td>
+                <td>github</td>
+                <td>Lorem ipsum dolor sit amet.</td>
+                <td class="text-center">
+                  <button type="button" class="btn btn-success me-2">Edit</button>
+                  <button type="button" class="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td>JavaScript</td>
+                <td>js</td>
+                <td>Lorem ipsum dolor sit amet.</td>
+                <td class="text-center">
+                  <button type="button" class="btn btn-success me-2">Edit</button>
+                  <button type="button" class="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td>Agile Methodology</td>
+                <td>agile</td>
+                <td>Lorem ipsum dolor sit amet.</td>
+                <td class="text-center">
+                  <button type="button" class="btn btn-success me-2">Edit</button>
+                  <button type="button" class="btn btn-danger">Delete</button>
+                </td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="createCourse" tabindex="-1" aria-labelledby="enrollLabel" aria-hidden="true">
+      <form class="modal-dialog" id="courseForm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="enrollLabel">Create Course</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="name" class="col-form-label">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" />
+              </div>
+              <div class="mb-3">
+                <label for="slug" class="col-form-label">Slug:</label>
+                <input type="text" class="form-control" id="slug" name="slug" />
+              </div>
+              <div class="mb-3">
+                <label for="description" class="col-form-label">Description:</label>
+                <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="editCourse" tabindex="-1" aria-labelledby="enrollLabel" aria-hidden="true">
+      <form class="modal-dialog editForm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="enrollLabel">Edit Course</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="editName" class="col-form-label">Name:</label>
+              <input type="text" class="form-control" id="editName" name="editName" />
+            </div>
+            <div class="mb-3">
+              <label for="editSlug" class="col-form-label">Slug:</label>
+              <input type="text" class="form-control" id="editSlug" name="editSlug" />
+            </div>
+            <div class="mb-3">
+              <label for="editDescription" class="col-form-label">Description:</label>
+              <textarea class="form-control" id="editDescription" rows="3" name="editDescription"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteCourse" tabindex="-1" aria-labelledby="enrollLabel" aria-hidden="true">
+      <form class="modal-dialog deleteForm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="enrollLabel">Delete Course</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <p>Are you sure to remove this course from the list?</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="p-5 bg-dark text-white text-center position-relative">
+      <div class="container">
+        <p class="lead">Copyright &copy; 2021 AP Signals Bootcamp</p>
+
+        <a href="#" class="position-absolute bottom-0 end-0 p-5">
+          <i class="bi bi-arrow-up-circle h1"></i>
+        </a>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+      integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
