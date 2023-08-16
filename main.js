@@ -1,9 +1,11 @@
+const baseURL = "https://css-js-education.onrender.com"
+
 const courseTable = document.querySelector("#courseTable");
 
 async function deleteCourse(e) {
   e.preventDefault();
   const id = document.querySelector(".deleteForm").getAttribute("id");
-  await axios.delete(`http://localhost:5555/deleteCourse?id=${id}`).then((res) => alert(res.data));
+  await axios.delete(`${baseURL}/deleteCourse?id=${id}`).then((res) => alert(res.data));
   window.location.reload();
 }
 
@@ -18,7 +20,7 @@ async function editCourse(e) {
     description: e.target.editDescription.value,
   };
   console.log(data);
-  await axios.patch("http://localhost:5555/updateCourse", data).then((res) => alert(res.data));
+  await axios.patch(`${baseURL}/updateCourse`, data).then((res) => alert(res.data));
   e.target.editName.value = "";
   e.target.editSlug.value = "";
   e.target.editDescription.value = "";
@@ -28,11 +30,11 @@ async function editCourse(e) {
 document.querySelector(".editForm").addEventListener("submit", editCourse);
 
 function getCourse(id) {
-  return axios.get(`http://localhost:5555/getCourse?id=${id}`).then((res) => res.data);
+  return axios.get(`${baseURL}/getCourse?id=${id}`).then((res) => res.data);
 }
 
 function getAllCourse() {
-  axios.get("http://localhost:5555/getAllCourses").then((res) => {
+  axios.get(`${baseURL}/getAllCourses`).then((res) => {
     const courses = res.data;
     courses.forEach((course) => {
       const tr = () => document.createElement("tr");
@@ -99,7 +101,7 @@ async function createCourseFunc(e) {
     slug: e.target.slug.value,
     description: e.target.description.value,
   };
-  await axios.post("http://localhost:5555/createCourse", data).then((res) => alert(res.data));
+  await axios.post(`${baseURL}/createCourse`, data).then((res) => alert(res.data));
 
   e.target.name.value = "";
   e.target.slug.value = "";
