@@ -1,0 +1,9 @@
+[
+  { "id": 1, "name": "HTML", "slug": "html", "description": "Lorem ipsum dolor sit amet." },
+  { "id": 2, "name": "CSS", "slug": "css", "description": "Lorem ipsum dolor sit amet." },
+  { "id": 3, "name": "Bootstrap", "slug": "bootstrap", "description": "Lorem ipsum dolor sit amet." },
+  { "id": 4, "name": "Git", "slug": "git", "description": "Lorem ipsum dolor sit amet." },
+  { "id": 5, "name": "Github", "slug": "github", "description": "Lorem ipsum dolor sit amet." },
+  { "id": 6, "name": "JavaScript", "slug": "js", "description": "Lorem ipsum dolor sit amet." },
+  { "id": 7, "name": "Agile Methodology", "slug": "agile", "description": "Lorem ipsum dolor sit amet." }
+]
